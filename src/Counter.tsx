@@ -10,12 +10,12 @@ const Counter = () => {
   const { count } = useSelector((state: rootState) => state.counter)
 
 
-  const handleIncremnt = () => {
-    dispatch(increment())
+  const handleIncremnt = (amount: number) => {
+    dispatch(increment(amount))
   }
 
-  const handleDecrement = () => {
-    dispatch(decrement())
+  const handleDecrement = (amount: number) => {
+    dispatch(decrement(amount))
   }
 
 
@@ -25,9 +25,11 @@ const Counter = () => {
         <p className=" text-center text-3xl ">Redux</p>
         <div className=" flex justify-center ">
           <div className=" flex justify-center items-center gap-5 mt-10 border-[1px] border-cyan-700 p-5 rounded-xl ">
-            <button onClick={handleIncremnt} className=" btn ">Increment</button>
+            <button onClick={() => handleIncremnt(5)} className=" btn ">Increment+5</button>
+            <button onClick={() => handleIncremnt(1)} className=" btn ">Increment+1</button>
             <p>{count}</p>
-            <button onClick={handleDecrement} className=" btn ">Decrement</button>
+            <button onClick={() => handleDecrement(5)} className=" btn ">Decrement-5</button>
+            <button onClick={() => handleDecrement(1)} className=" btn ">Decrement-1</button>
           </div>
         </div>
       </div>
